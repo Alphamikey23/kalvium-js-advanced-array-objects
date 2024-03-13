@@ -1,6 +1,9 @@
 //Challenge 1: Given an array of strings, write a code to return a new array that only includes the strings that are 5 characters or more in length using filter method.
 const strings = ['dog', 'by', 'cat', 'camping', 'large', 'flower', 'rabbit'];
 
+const results = strings.filter((word) => word.lenght >=5)
+console.log(results)
+
 //Challenge 2: Given an array of numbers, write a code to return a new array of squares for each item in an array using map method.
 const numbers = ['45', '55', '65', '75', '85'];
 
