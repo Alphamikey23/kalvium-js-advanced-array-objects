@@ -1,21 +1,41 @@
 //Challenge 1: Given an array of strings, write a code to return a new array that only includes the strings that are 5 characters or more in length using filter method.
 const strings = ['dog', 'by', 'cat', 'camping', 'large', 'flower', 'rabbit'];
 
-const results = strings.filter((word) => word.lenght >=5)
+const results = strings.filter((word) => word.length >=5)
 console.log(results)
 
 //Challenge 2: Given an array of numbers, write a code to return a new array of squares for each item in an array using map method.
 const numbers = ['45', '55', '65', '75', '85'];
 
+function square(number) {
+  return number*2;
+
+} 
+
+results1 = numbers.map(square)
+console.log(results1)
 //Challenge 3: Given an array of alphabets, write a code to concatenate all the elements of the array "alphabets" to make it as a string and print the same in console. Hint: Use reduce method.
 const alphabets = ['K', 'a', 'l', 'v', 'i', 'u', 'm'];
 
+function word_concat(previousValue, currentValue) {
+  return previousValue + currentValue;
+}
+
+var results3 = alphabets.reduce(word_concat, '');
+console.log(results3);
 //Challenge 4: Given an array of numbers, write a code to return a first even number using find method.
-const number = [1, 2, 3, 4, 5];
+const numbers1 = [1, 2, 3, 4, 5];
+
+const firstEvenNumber = numbers1.find(number => number % 2 === 0);
+
+console.log(firstEvenNumber);
 
 //Challenge 5: Given a list of ranks, write a code to return the index of the first occurrence of the number 7 in the ranks array using findIndex method.
 const ranks = [1, 5, 7, 8, 10, 7];
 
+const index = ranks.findIndex(rank => rank === 7);
+
+console.log(index);
 //Challenge 6: Given a list of numbers, using forEach loop iterate over each element of the array to print the output as:
 // 0:2
 //1:4
@@ -23,11 +43,29 @@ const ranks = [1, 5, 7, 8, 10, 7];
 //3:8
 const num = [2, 4, 6, 8];
 
+for (var i = 0; i < num.length; i++) {
+  console.log(i + " : "+num[i])
+}
+
 //Challenge 7: Given an array of marks, using "some method", check if the following array has at least one element less than 45 and print true.
 const marks = [35, 66, 25, 85, 75, 45];
 
+function eval(val) {
+  return val < 45
+}
+
+results7 = marks.some(eval)
+console.log(results7)
+
 //Challenge 8: Given an array of numbers, write a code to check if all the array elements are positive by using "every method" and print true if all the numbers are positive, else print false.
 const positive = [2, 3, 4, -1];
+
+function eval(val) {
+  return val > 0;
+}
+
+const results8 = positive.every(eval);
+console.log(results8);
 
 //Challenge 9: Given an array of objects, using dot and bracket notation print the output as :
 //1. "Audi"
@@ -57,6 +95,12 @@ const cars = [
   },
 ];
 
+console.log("1. "+cars[0].name+"\n");
+console.log("2. "+cars[2].name+" "+cars[2].color[0]);
+console.log("3. "+cars[1].name+" "+cars[1].color[2]+" "+cars[1].capacity);
+console.log("4. "+cars[3].name+" "+cars[3].color[1]+" "+cars[3].capacity)
+
+
 //Challenge 10: Given a nested object,
 //1. Delete the "phoneno" property from the object person.
 //2. Using the hasOwnProperty check whether the person object has the property "bike", "house".
@@ -75,3 +119,24 @@ const person = {
   email: 'ajay@gmail.com',
   phoneno: 9978425555,
 };
+
+
+delete person.phoneno;
+
+// 2. Using hasOwnProperty check whether the person object has the property "bike", "house".
+const hasBike = person.hasOwnProperty('vehicles') && person.vehicles.hasOwnProperty('bike');
+const hasHouse = person.hasOwnProperty('house');
+
+console.log(hasBike); // true
+console.log(hasHouse); // false
+
+// 3. Using dot and bracket notation get the output as "Mr Ajay Kumar travels by plane called Air123".
+const output = `Mr ${person.name} travels by ${person.vehicles.plane} called Air123`;
+console.log(output);
+
+// 4. Change the email property of person object to "ajaykumar@gmail.com".
+person.email = 'ajaykumar@gmail.com';
+
+// 5. Generate an array of keys to the object person using Object.keys() method.
+const keysArray = Object.keys(person);
+console.log(keysArray);
